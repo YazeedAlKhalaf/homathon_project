@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:homathon_project/src/constants/route_names.dart';
+import 'package:homathon_project/src/ui/views/history_view.dart';
 import 'package:homathon_project/src/ui/views/home_view.dart';
 import 'package:homathon_project/src/ui/views/login_view.dart';
+import 'package:homathon_project/src/ui/views/map_view.dart';
+import 'package:homathon_project/src/ui/views/notifications_view.dart';
+import 'package:homathon_project/src/ui/views/profile_view.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -15,6 +19,30 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: LoginView(),
+      );
+      break;
+    case NotificationsViewRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: NotificationsView(),
+      );
+      break;
+    case ProfileViewRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: ProfileView(),
+      );
+      break;
+    case MapViewRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: MapView(),
+      );
+      break;
+    case HistoryViewRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: HistoryView(),
       );
       break;
     default:

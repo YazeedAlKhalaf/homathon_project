@@ -14,8 +14,9 @@ class BaseProvider extends ChangeNotifier {
 
   final User currentUser = User(
     uid: '_id9823514308',
-    firstName: 'مصطفى',
-    lastName: 'عبدالعزيز',
+    email: 'test@example.com',
+    firstName: 'Test',
+    lastName: 'User',
   );
 
   bool _busy = false;

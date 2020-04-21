@@ -24,18 +24,105 @@ class _HomeViewState extends State<HomeView> {
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: backgroundColor,
             elevation: 0.3,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            title: Text(
+              'APP NAME',
+              style: TextStyle(
+                color: textColorWhite,
+                fontSize: blockSizeHorizontal(context) * 10,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(
+                  Icons.notifications_none,
+                  color: backgroundColor,
+                  size: blockSizeHorizontal(context) * 6,
+                ),
+                onPressed: () {
+                  provider.navigateToNotificationsView();
+                },
+              ),
+            ],
+          ),
+          drawer: Drawer(
+            child: ListView(
               children: <Widget>[
-                Text(
-                  'APP NAME',
-                  style: TextStyle(
-                    color: textColorBlack,
-                    fontSize: blockSizeHorizontal(context) * 10,
-                    fontWeight: FontWeight.bold,
+                UserAccountsDrawerHeader(
+                  margin: EdgeInsets.all(0),
+                  decoration: BoxDecoration(
+                    color: primaryColor,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage(
+                        'assets/images/defaults/default_background_image.png',
+                      ),
+                    ),
                   ),
+                  currentAccountPicture: CircleAvatar(
+                    backgroundColor: accentColor,
+                    backgroundImage: AssetImage(
+                      'assets/images/defaults/default_profile_image.png',
+                    ),
+                  ),
+                  accountName: Text(
+                    provider.utils.getFullName(
+                      currentUser: provider.currentUser,
+                    ),
+                  ),
+                  accountEmail: Text(
+                    provider.currentUser.email,
+                  ),
+                ),
+                Container(
+                  height: blockSizeHorizontal(context) * 2,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: primaryColor,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        width: (blockSizeHorizontal(context) * 73.7) / 4,
+                        color: Color(0xff665EFF),
+                      ),
+                      Container(
+                        width: (blockSizeHorizontal(context) * 73.7) / 4,
+                        color: Color(0xff5773FF),
+                      ),
+                      Container(
+                        width: (blockSizeHorizontal(context) * 73.7) / 4,
+                        color: Color(0xff3497FD),
+                      ),
+                      Container(
+                        width: (blockSizeHorizontal(context) * 73.7) / 4,
+                        color: Color(0xff3ACCE1),
+                      ),
+                    ],
+                  ),
+                ),
+                CustomCard(
+                  leadingIcon: Icons.person,
+                  titleText: 'Profile',
+                  onTap: () {
+                    provider.navigateToProfileView();
+                  },
+                ),
+                CustomCard(
+                  leadingIcon: Icons.map,
+                  titleText: 'Map',
+                  onTap: () {
+                    provider.navigateToMapView();
+                  },
+                ),
+                CustomCard(
+                  leadingIcon: Icons.history,
+                  titleText: 'History',
+                  onTap: () {
+                    provider.navigateToHistoryView();
+                  },
                 ),
               ],
             ),
