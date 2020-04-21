@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:homathon_project/src/providers/notifications_provider.dart';
+import 'package:homathon_project/src/ui/shared/app_colors.dart';
 import 'package:homathon_project/src/ui/shared/ui_helpers.dart';
+import 'package:homathon_project/src/ui/widgets/custom_card.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 
 class NotificationsView extends StatefulWidget {
@@ -19,15 +21,73 @@ class _NotificationsViewState extends State<NotificationsView> {
         Widget child,
       ) {
         return Scaffold(
-          appBar: AppBar(),
+          backgroundColor: primaryColor,
+          appBar: AppBar(
+            elevation: 0,
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(
+                  Icons.search,
+                  color: backgroundColor,
+                  size: blockSizeHorizontal(context) * 7,
+                ),
+                onPressed: () {},
+              ),
+            ],
+            bottom: PreferredSize(
+              child: Padding(
+                padding: EdgeInsets.all(
+                  blockSizeHorizontal(context) * 3,
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      'Notifications',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        color: textColorWhite,
+                        fontSize: blockSizeHorizontal(context) * 10,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              preferredSize: Size(
+                screenWidth(context),
+                blockSizeHorizontal(context) * 15,
+              ),
+            ),
+          ),
           body: SafeArea(
             child: Center(
-              child: Text(
-                'Notifications View',
-                style: TextStyle(
-                  fontSize: blockSizeHorizontal(context) * 7,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: ListView(
+                children: <Widget>[
+                  CustomCard(
+                    leadingIcon: Icons.notifications_active,
+                    titleText: 'New Case Detected!',
+                    onTap: () {},
+                  ),
+                  CustomCard(
+                    leadingIcon: Icons.notifications,
+                    titleText: 'New Case Detected!',
+                    onTap: () {},
+                  ),
+                  CustomCard(
+                    leadingIcon: Icons.notifications,
+                    titleText: 'New Case Detected!',
+                    onTap: () {},
+                  ),
+                  CustomCard(
+                    leadingIcon: Icons.notifications,
+                    titleText: 'New Case Detected!',
+                    onTap: () {},
+                  ),
+                  CustomCard(
+                    leadingIcon: Icons.notifications,
+                    titleText: 'New Case Detected!',
+                    onTap: () {},
+                  ),
+                ],
               ),
             ),
           ),
