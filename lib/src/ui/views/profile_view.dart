@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:homathon_project/src/providers/profile_provider.dart';
+import 'package:homathon_project/src/ui/shared/app_colors.dart';
 import 'package:homathon_project/src/ui/shared/ui_helpers.dart';
+import 'package:homathon_project/src/ui/widgets/custom_square.dart';
 import 'package:provider_architecture/provider_architecture.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProfileView extends StatefulWidget {
   @override
@@ -19,15 +22,118 @@ class ProfileViewState extends State<ProfileView> {
         Widget child,
       ) {
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            iconTheme: IconThemeData(
+              color: textColorBlack,
+            ),
+          ),
           body: SafeArea(
             child: Center(
-              child: Text(
-                'Profile View',
-                style: TextStyle(
-                  fontSize: blockSizeHorizontal(context) * 7,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Column(
+                children: <Widget>[
+                  CircleAvatar(
+                    radius: blockSizeHorizontal(context) * 20,
+                  ),
+                  SizedBox(
+                    height: blockSizeHorizontal(context) * 5,
+                  ),
+                  Text(
+                    provider.utils.getFullName(
+                      currentUser: provider.currentUser,
+                    ),
+                    style: TextStyle(
+                      fontSize: blockSizeHorizontal(context) * 10,
+                      color: primaryColor,
+                    ),
+                  ),
+                  SizedBox(
+                    height: blockSizeHorizontal(context) * 2,
+                  ),
+                  Text(
+                    provider.currentUser.email,
+                    style: TextStyle(
+                      fontSize: blockSizeHorizontal(context) * 5,
+                      color: lynchColor,
+                    ),
+                  ),
+                  SizedBox(
+                    height: blockSizeHorizontal(context) * 8,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          CustomSquare(
+                            onTap: () {},
+                            iconData: FontAwesomeIcons.comments,
+                            iconColor: pictonBlueColor,
+                            text: 'Chats',
+                            textStyle: TextStyle(
+                              fontSize: blockSizeHorizontal(context) * 5,
+                              color: lynchColor,
+                            ),
+                          ),
+                          CustomSquare(
+                            onTap: () {},
+                            iconData: FontAwesomeIcons.archive,
+                            iconColor: lightDodgerBlueColor,
+                            text: 'Docks',
+                            textStyle: TextStyle(
+                              fontSize: blockSizeHorizontal(context) * 5,
+                              color: lynchColor,
+                            ),
+                          ),
+                          CustomSquare(
+                            onTap: () {},
+                            iconData: FontAwesomeIcons.locationArrow,
+                            iconColor: cornFlowerBlueColor,
+                            text: 'Location',
+                            textStyle: TextStyle(
+                              fontSize: blockSizeHorizontal(context) * 5,
+                              color: lynchColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          CustomSquare(
+                            onTap: () {},
+                            iconData: FontAwesomeIcons.userFriends,
+                            iconColor: pictonBlueColor,
+                            text: 'Friends',
+                            textStyle: TextStyle(
+                              fontSize: blockSizeHorizontal(context) * 5,
+                              color: lynchColor,
+                            ),
+                          ),
+                          CustomSquare(
+                            onTap: () {},
+                            iconData: FontAwesomeIcons.userLock,
+                            iconColor: lightDodgerBlueColor,
+                            text: 'Settings',
+                            textStyle: TextStyle(
+                              fontSize: blockSizeHorizontal(context) * 5,
+                              color: lynchColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),

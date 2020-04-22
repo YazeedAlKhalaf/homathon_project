@@ -2,7 +2,6 @@ import 'package:homathon_project/src/ui/shared/app_colors.dart';
 import 'package:homathon_project/src/ui/shared/ui_helpers.dart';
 import 'package:homathon_project/src/ui/widgets/busy_overlay.dart';
 import 'package:homathon_project/src/ui/widgets/rounded_button.dart';
-import 'package:homathon_project/src/ui/widgets/text_link.dart';
 import 'package:homathon_project/src/providers/login_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/provider_architecture.dart';
