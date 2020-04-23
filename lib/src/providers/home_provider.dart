@@ -16,7 +16,9 @@ class HomeProvider extends BaseProvider {
     setBusy(false);
   }
 
-  navigateToHistoryView() {
-    navigationService.navigateTo(HistoryViewRoute);
+  navigateToHistoryView() async {
+    setBusy(true);
+    await navigationService.navigateTo(HistoryViewRoute);
+    setBusy(false);
   }
 }

@@ -27,6 +27,8 @@ dependencies:
   font_awesome_flutter: ^8.8.1
   # google maps flutter
   google_maps_flutter: ^0.5.26+2
+  # timeline list
+  timeline_list: ^0.0.5
 
 dev_dependencies:
   flutter_test:
@@ -48,3 +50,12 @@ flutter:
     - assets/images/gif/
     - assets/images/defaults/
     - assets/map_styles/
+
+  fonts:
+    - family: Gibson
+      fonts:
+        - asset: assets/fonts/gibson_regular.ttf
+        - asset: assets/fonts/gibson_regular_italic.ttf
+          style: italic
+        - asset: assets/fonts/gibson_bold.ttf
+          weight: 700

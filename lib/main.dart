@@ -52,6 +52,7 @@ class MyApp extends StatelessWidget {
         primaryIconTheme: IconThemeData(
           color: backgroundColor,
         ),
+        fontFamily: 'Gibson',
       ),
       home: StartupView(),
       onGenerateRoute: generateRoute,
