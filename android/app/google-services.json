@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "146675335106",
+    "firebase_url": "https://we-pass-yazeed-alkhalaf.firebaseio.com",
+    "project_id": "we-pass-yazeed-alkhalaf",
+    "storage_bucket": "we-pass-yazeed-alkhalaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146675335106:android:49a4fe02f941b24c0ae05b",
+        "android_client_info": {
+          "package_name": "dev.alkhalaf.homathon_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146675335106-9p9fp4s75ta9rdjj8qtc212plj3mfa33.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8RXkbu4TeDKeq_5laxy2JgLe4NzSIzhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146675335106-9p9fp4s75ta9rdjj8qtc212plj3mfa33.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "146675335106-gpi0eo8osucdormioktu2eo95s2tsnt5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dev.alkhalaf.wePass"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
