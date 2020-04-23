@@ -1,10 +1,11 @@
 class User {
   String uid;
-  String firstName; // real name
-  String lastName; // real name
+  String firstName; // real first name
+  String lastName; // real last name
   String username; // nickname
   String email;
   String profilePhoto;
+  String idNumber;
 
   User({
     this.uid,
@@ -13,6 +14,7 @@ class User {
     this.username,
     this.email,
     this.profilePhoto,
+    this.idNumber,
   });
 
   User.fromJson(Map<String, dynamic> data) {
@@ -22,6 +24,7 @@ class User {
     this.username = data['username'];
     this.email = data['email'];
     this.profilePhoto = data['profilePhoto'];
+    this.idNumber = data['idNumber'];
   }
 
   Map<String, dynamic> toJson() {
@@ -32,6 +35,7 @@ class User {
       'username': username,
       'email': email,
       'profilePhoto': profilePhoto,
+      'idNumber': idNumber,
     };
   }
 }

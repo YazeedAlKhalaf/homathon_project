@@ -14,8 +14,8 @@ class _StartupViewState extends State<StartupView> {
   Widget build(BuildContext context) {
     return ViewModelProvider.withConsumer(
       viewModelBuilder: () => StartupProvider(),
-      onModelReady: (StartupProvider provider) {
-        provider.handleStartUpLogic();
+      onModelReady: (StartupProvider provider) async {
+        await provider.handleStartUpLogic();
       },
       builder: (
         BuildContext context,

@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:homathon_project/src/models/user.dart';
+import 'package:homathon_project/src/services/authentication_service.dart';
+import 'package:homathon_project/src/services/firestore_service.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:homathon_project/src/locator.dart';
 import 'package:homathon_project/src/services/dialog_service.dart';
@@ -11,13 +14,11 @@ class BaseProvider extends ChangeNotifier {
   final NavigationService navigationService = locator<NavigationService>();
   final DialogService dialogService = locator<DialogService>();
   final Utils utils = locator<Utils>();
+  final AuthenticationService authenticationService =
+      locator<AuthenticationService>();
+  final FirestoreService firestoreService = locator<FirestoreService>();
 
-  final User currentUser = User(
-    uid: '_id9823514308',
-    email: 'test@example.com',
-    firstName: 'Test',
-    lastName: 'User',
-  );
+  User get currentUser => authenticationService.currentUser;
 
   bool _busy = false;
   bool get busy => _busy;

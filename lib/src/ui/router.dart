@@ -6,6 +6,7 @@ import 'package:homathon_project/src/ui/views/login_view.dart';
 import 'package:homathon_project/src/ui/views/map_view.dart';
 import 'package:homathon_project/src/ui/views/notifications_view.dart';
 import 'package:homathon_project/src/ui/views/profile_view.dart';
+import 'package:homathon_project/src/ui/views/signup_view.dart.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -19,6 +20,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: LoginView(),
+      );
+      break;
+    case SignupViewRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: SignupView(),
       );
       break;
     case NotificationsViewRoute:
