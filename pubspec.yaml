@@ -29,6 +29,8 @@ dependencies:
   google_maps_flutter: ^0.5.26+2
   # timeline list
   timeline_list: ^0.0.5
+  # google map polyline
+  google_map_polyline: ^0.2.0+1
 
 dev_dependencies:
   flutter_test:
