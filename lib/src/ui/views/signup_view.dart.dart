@@ -24,14 +24,14 @@ class _SignupViewState extends State<SignupView> {
       ) {
         return Scaffold(
           backgroundColor: backgroundColor,
-          body: Center(
-            child: AbsorbPointer(
-              absorbing: provider.busy ? true : false,
-              child: Opacity(
-                opacity: provider.busy ? 0.5 : 1,
+          body: GestureDetector(
+            onTap: () => provider.removeFocus(context),
+            child: Center(
+              child: BusyOverlay(
+                show: provider.busy,
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: screenWidth(context) * 0.1,
+                    horizontal: blockSizeHorizontal(context) * 10,
                   ),
                   child: SingleChildScrollView(
                     child: Column(
@@ -86,6 +86,22 @@ class _SignupViewState extends State<SignupView> {
                               ),
                             ),
                           ],
+                        ),
+                        SizedBox(
+                          height: blockSizeHorizontal(context) * 5,
+                        ),
+                        TextFormField(
+                          controller: provider.idNumberController,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                50,
+                              ),
+                            ),
+                            labelText: 'ID Number or Iqama',
+                            hintText: 'Enter your own ID Number or Iqama',
+                          ),
                         ),
                         SizedBox(
                           height: blockSizeHorizontal(context) * 5,

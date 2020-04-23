@@ -5,6 +5,7 @@ import 'package:homathon_project/src/providers/base_provider.dart';
 class SignupProvider extends BaseProvider {
   final firstNameController = TextEditingController();
   final lastNameController = TextEditingController();
+  final idNumberController = TextEditingController();
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -18,6 +19,7 @@ class SignupProvider extends BaseProvider {
       firstName: firstNameController.text,
       lastName: lastNameController.text,
       username: usernameController.text,
+      idNumber: idNumberController.text,
     );
 
     setBusy(false);

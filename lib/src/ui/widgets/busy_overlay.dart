@@ -21,8 +21,8 @@ class BusyOverlay extends StatelessWidget {
         children: <Widget>[
           child,
           show
-              ? IgnorePointer(
-                  ignoring: true,
+              ? AbsorbPointer(
+                  absorbing: true,
                   child: Opacity(
                     opacity: 1.0,
                     child: Container(

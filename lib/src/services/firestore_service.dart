@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:homathon_project/src/constants/strings.dart';
 import 'package:homathon_project/src/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -34,5 +35,16 @@ class FirestoreService {
 
       return e.toString();
     }
+  }
+
+  Future updateUserData({
+    @required User currentUser,
+    @required User currentUserWithNewData,
+  }) async {
+    var userMap = currentUserWithNewData.toJson();
+
+    await _usersCollectionReference.document(currentUser.uid).updateData(
+          userMap,
+        );
   }
 }

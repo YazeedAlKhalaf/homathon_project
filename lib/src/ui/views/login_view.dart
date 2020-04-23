@@ -24,97 +24,100 @@ class _LoginViewState extends State<LoginView> {
       ) {
         return Scaffold(
           backgroundColor: backgroundColor,
-          body: Center(
-            child: BusyOverlay(
-              show: provider.busy,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenWidth(context) * 0.1,
-                ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Login',
-                        style: TextStyle(
-                          fontSize: blockSizeHorizontal(context) * 15,
-                          fontWeight: FontWeight.bold,
-                          color: textColorBlack,
-                        ),
-                      ),
-                      SizedBox(
-                        height: blockSizeHorizontal(context) * 15,
-                      ),
-                      TextFormField(
-                        controller: provider.emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                              50,
-                            ),
+          body: GestureDetector(
+            onTap: () => provider.removeFocus(context),
+            child: Center(
+              child: BusyOverlay(
+                show: provider.busy,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: screenWidth(context) * 0.1,
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: blockSizeHorizontal(context) * 15,
+                            fontWeight: FontWeight.bold,
+                            color: textColorBlack,
                           ),
-                          labelText: 'Email',
-                          hintText: 'e.g example@example.com',
                         ),
-                      ),
-                      SizedBox(
-                        height: blockSizeHorizontal(context) * 5,
-                      ),
-                      TextFormField(
-                        controller: provider.passwordController,
-                        keyboardType: TextInputType.visiblePassword,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                              50,
+                        SizedBox(
+                          height: blockSizeHorizontal(context) * 15,
+                        ),
+                        TextFormField(
+                          controller: provider.emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                50,
+                              ),
                             ),
+                            labelText: 'Email',
+                            hintText: 'e.g example@example.com',
                           ),
-                          labelText: 'Password',
-                          hintText: 'Enter your own password :-)',
                         ),
-                        obscureText: true,
-                      ),
-                      SizedBox(
-                        height: blockSizeHorizontal(context) * 5,
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          RoundedButton(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: blockSizeHorizontal(context) * 7,
-                              vertical: blockSizeHorizontal(context) * 2,
+                        SizedBox(
+                          height: blockSizeHorizontal(context) * 5,
+                        ),
+                        TextFormField(
+                          controller: provider.passwordController,
+                          keyboardType: TextInputType.visiblePassword,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                50,
+                              ),
                             ),
-                            text: 'Login',
-                            isBusy: provider.busy,
-                            fontSize: blockSizeHorizontal(context) * 7,
-                            onPressed: () async {
-                              provider.removeFocus(context);
-                              await provider.login();
-                            },
+                            labelText: 'Password',
+                            hintText: 'Enter your own password :-)',
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: blockSizeHorizontal(context) * 5,
-                      ),
-                      TextLink(
-                        'Have no account? Create one now!',
-                        style: TextStyle(
-                          color: textColorLink,
-                          fontSize: blockSizeHorizontal(context) * 4,
-                          fontWeight: FontWeight.bold,
+                          obscureText: true,
                         ),
-                        onPressed: () {
-                          provider.navigateToSignUp();
-                        },
-                      )
-                    ],
+                        SizedBox(
+                          height: blockSizeHorizontal(context) * 5,
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            RoundedButton(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: blockSizeHorizontal(context) * 7,
+                                vertical: blockSizeHorizontal(context) * 2,
+                              ),
+                              text: 'Login',
+                              isBusy: provider.busy,
+                              fontSize: blockSizeHorizontal(context) * 7,
+                              onPressed: () async {
+                                provider.removeFocus(context);
+                                await provider.login();
+                              },
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: blockSizeHorizontal(context) * 5,
+                        ),
+                        TextLink(
+                          'Have no account? Create one now!',
+                          style: TextStyle(
+                            color: textColorLink,
+                            fontSize: blockSizeHorizontal(context) * 4,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          onPressed: () {
+                            provider.navigateToSignUp();
+                          },
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

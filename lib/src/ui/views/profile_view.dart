@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:homathon_project/src/providers/profile_provider.dart';
 import 'package:homathon_project/src/ui/shared/app_colors.dart';
 import 'package:homathon_project/src/ui/shared/ui_helpers.dart';
 import 'package:homathon_project/src/ui/widgets/custom_square.dart';
+import 'package:homathon_project/src/ui/widgets/rounded_button.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -26,8 +28,19 @@ class ProfileViewState extends State<ProfileView> {
             elevation: 0,
             backgroundColor: Colors.transparent,
             iconTheme: IconThemeData(
-              color: textColorBlack,
+              color: primaryColor,
             ),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(
+                  Icons.edit,
+                  color: primaryColor,
+                ),
+                onPressed: () {
+                  provider.navigateToEditProfileView();
+                },
+              ),
+            ],
           ),
           body: SafeArea(
             child: Center(
@@ -35,6 +48,13 @@ class ProfileViewState extends State<ProfileView> {
                 children: <Widget>[
                   CircleAvatar(
                     radius: blockSizeHorizontal(context) * 20,
+                    backgroundImage: provider.currentUser.profilePhoto == null
+                        ? AssetImage(
+                            'assets/images/defaults/default_profile_image.png',
+                          )
+                        : CachedNetworkImageProvider(
+                            provider.currentUser.profilePhoto,
+                          ),
                   ),
                   SizedBox(
                     height: blockSizeHorizontal(context) * 5,
@@ -130,6 +150,17 @@ class ProfileViewState extends State<ProfileView> {
                             ),
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        height: blockSizeHorizontal(context) * 8,
+                      ),
+                      RoundedButton(
+                        text: 'Sign Out',
+                        buttonColor: Colors.redAccent,
+                        fontSize: blockSizeHorizontal(context) * 5,
+                        onPressed: () async {
+                          await provider.signOut();
+                        },
                       ),
                     ],
                   ),

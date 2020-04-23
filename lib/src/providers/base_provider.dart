@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:homathon_project/src/models/user.dart';
 import 'package:homathon_project/src/services/authentication_service.dart';
 import 'package:homathon_project/src/services/firestore_service.dart';
+import 'package:homathon_project/src/services/storage_service.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:homathon_project/src/locator.dart';
 import 'package:homathon_project/src/services/dialog_service.dart';
@@ -17,6 +18,7 @@ class BaseProvider extends ChangeNotifier {
   final AuthenticationService authenticationService =
       locator<AuthenticationService>();
   final FirestoreService firestoreService = locator<FirestoreService>();
+  final StorageService storageService = locator<StorageService>();
 
   User get currentUser => authenticationService.currentUser;
 

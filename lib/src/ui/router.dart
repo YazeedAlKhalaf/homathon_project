@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homathon_project/src/constants/route_names.dart';
+import 'package:homathon_project/src/ui/views/edit_profile_view.dart';
 import 'package:homathon_project/src/ui/views/history_view.dart';
 import 'package:homathon_project/src/ui/views/home_view.dart';
 import 'package:homathon_project/src/ui/views/login_view.dart';
@@ -38,6 +39,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: ProfileView(),
+      );
+      break;
+    case EditProfileViewRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: EditProfileView(),
       );
       break;
     case MapViewRoute:

@@ -33,6 +33,7 @@ class AuthenticationService {
     @required String firstName,
     @required String lastName,
     @required String username,
+    @required String idNumber,
   }) async {
     try {
       var authResult = await _firebaseAuth.createUserWithEmailAndPassword(
@@ -47,6 +48,7 @@ class AuthenticationService {
         firstName: firstName,
         lastName: lastName,
         username: username,
+        idNumber: idNumber,
       );
       await _firestoreService.createUser(_currentUser);
 
