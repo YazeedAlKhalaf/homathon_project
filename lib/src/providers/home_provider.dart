@@ -10,8 +10,10 @@ class HomeProvider extends BaseProvider {
     navigationService.navigateTo(ProfileViewRoute);
   }
 
-  navigateToMapView() {
-    navigationService.navigateTo(MapViewRoute);
+  navigateToMapView() async {
+    setBusy(true);
+    await navigationService.navigateTo(MapViewRoute);
+    setBusy(false);
   }
 
   navigateToHistoryView() {
