@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:homathon_project/src/providers/history_provider.dart';
 import 'package:homathon_project/src/ui/shared/app_colors.dart';
 import 'package:homathon_project/src/ui/shared/ui_helpers.dart';
+import 'package:photo_view/photo_view.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:timeline_list/timeline.dart';
 import 'package:timeline_list/timeline_model.dart';
@@ -54,404 +54,309 @@ class _HistoryViewState extends State<HistoryView> {
             ),
           ),
           body: SafeArea(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(
-                    blockSizeHorizontal(context) * 5,
+            child: Stack(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    width: screenWidth(context),
+                    height: screenHeight(context) / 4,
+                    child: PhotoView(
+                      imageProvider: AssetImage(
+                        'assets/images/history_map.png',
+                      ),
+                      initialScale: PhotoViewComputedScale.contained * 2,
+                    ),
                   ),
-                  topRight: Radius.circular(
-                    blockSizeHorizontal(context) * 5,
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: backgroundColor,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(
+                          blockSizeHorizontal(context) * 5,
+                        ),
+                        topRight: Radius.circular(
+                          blockSizeHorizontal(context) * 5,
+                        ),
+                      ),
+                    ),
+                    width: screenWidth(context),
+                    height: screenHeight(context) / 2,
+                    child: Padding(
+                      padding: EdgeInsets.all(
+                        blockSizeHorizontal(context) * 5,
+                      ),
+                      child: Timeline(
+                        children: [
+                          TimelineModel(
+                            Card(
+                              color: dangerColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                  15,
+                                ),
+                              ),
+                              elevation: 4,
+                              child: Padding(
+                                padding: EdgeInsets.all(
+                                  blockSizeHorizontal(context) * 5,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      '5:25 pm | 11/03/2020',
+                                      style: TextStyle(
+                                        color: textColorWhite,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            blockSizeHorizontal(context) * 4,
+                                      ),
+                                    ),
+                                    Text(
+                                      'McDonalds - Khozama',
+                                      style: TextStyle(
+                                        color: textColorWhite,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize:
+                                            blockSizeHorizontal(context) * 5,
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        CircleAvatar(
+                                          radius:
+                                              blockSizeHorizontal(context) * 6,
+                                          backgroundColor: lightDodgerBlueColor,
+                                          child: Stack(
+                                            children: <Widget>[
+                                              Center(
+                                                child: Container(
+                                                  child: Icon(
+                                                    Icons.person,
+                                                    size: blockSizeHorizontal(
+                                                            context) *
+                                                        9,
+                                                  ),
+                                                ),
+                                              ),
+                                              Opacity(
+                                                opacity: 0.8,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    color: primaryColor,
+                                                  ),
+                                                ),
+                                              ),
+                                              Center(
+                                                child: Container(
+                                                  child: Text(
+                                                    '+3',
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize:
+                                                          blockSizeHorizontal(
+                                                                  context) *
+                                                              5,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            position: TimelineItemPosition.left,
+                            iconBackground: dodgerBlueColor,
+                            icon: Icon(
+                              Icons.fastfood,
+                              color: backgroundColor,
+                              size: blockSizeHorizontal(context) * 5,
+                            ),
+                            isFirst: true,
+                          ),
+                          TimelineModel(
+                            Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                  15,
+                                ),
+                              ),
+                              elevation: 4,
+                              child: Padding(
+                                padding: EdgeInsets.all(
+                                  blockSizeHorizontal(context) * 5,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      '3:29 pm | 11/03/2020',
+                                      style: TextStyle(
+                                        color: lynchColor,
+                                        fontSize:
+                                            blockSizeHorizontal(context) * 4,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Grandmother\'s House',
+                                      style: TextStyle(
+                                        color: accentColor,
+                                        fontSize:
+                                            blockSizeHorizontal(context) * 6,
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        CircleAvatar(
+                                          radius:
+                                              blockSizeHorizontal(context) * 6,
+                                          backgroundColor: lightDodgerBlueColor,
+                                          backgroundImage: AssetImage(
+                                            'assets/images/defaults/default_avatar1_image.png',
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width:
+                                              blockSizeHorizontal(context) * 3,
+                                        ),
+                                        CircleAvatar(
+                                          radius:
+                                              blockSizeHorizontal(context) * 6,
+                                          backgroundColor: mediumPurpleColor,
+                                          child: Text(
+                                            '+5',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: textColorWhite,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize:
+                                                  blockSizeHorizontal(context) *
+                                                      5,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            position: TimelineItemPosition.left,
+                            iconBackground: mediumPurpleColor,
+                            icon: Icon(
+                              FontAwesomeIcons.heart,
+                              color: backgroundColor,
+                              size: blockSizeHorizontal(context) * 5,
+                            ),
+                          ),
+                          TimelineModel(
+                            Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                  15,
+                                ),
+                              ),
+                              elevation: 4,
+                              child: Padding(
+                                padding: EdgeInsets.all(
+                                  blockSizeHorizontal(context) * 5,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      '12:29 pm | 12/03/2020',
+                                      style: TextStyle(
+                                        color: lynchColor,
+                                        fontSize:
+                                            blockSizeHorizontal(context) * 4,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Al-Nakheel Mall',
+                                      style: TextStyle(
+                                        color: accentColor,
+                                        fontSize:
+                                            blockSizeHorizontal(context) * 6,
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: <Widget>[
+                                        CircleAvatar(
+                                          radius:
+                                              blockSizeHorizontal(context) * 6,
+                                          backgroundColor: lightDodgerBlueColor,
+                                          child: Text(
+                                            '14K',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: textColorWhite,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize:
+                                                  blockSizeHorizontal(context) *
+                                                      4.5,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width:
+                                              blockSizeHorizontal(context) * 3,
+                                        ),
+                                        CircleAvatar(
+                                          radius:
+                                              blockSizeHorizontal(context) * 6,
+                                          backgroundColor: mediumPurpleColor,
+                                          child: Text(
+                                            '3',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              color: textColorWhite,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize:
+                                                  blockSizeHorizontal(context) *
+                                                      5,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            position: TimelineItemPosition.left,
+                            iconBackground: lightDodgerBlueColor,
+                            icon: Icon(
+                              Icons.healing,
+                              color: backgroundColor,
+                              size: blockSizeHorizontal(context) * 5,
+                            ),
+                          ),
+                        ],
+                        position: TimelinePosition.Left,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              width: screenWidth(context),
-              height: screenHeight(context),
-              child: Padding(
-                padding: EdgeInsets.all(
-                  blockSizeHorizontal(context) * 5,
-                ),
-                child: Timeline(
-                  children: [
-                    TimelineModel(
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
-                        ),
-                        elevation: 4,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            blockSizeHorizontal(context) * 5,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '9:00 (25 min)',
-                                style: TextStyle(
-                                  color: lynchColor,
-                                  fontSize: blockSizeHorizontal(context) * 4,
-                                ),
-                              ),
-                              Text(
-                                'Shopping',
-                                style: TextStyle(
-                                  color: accentColor,
-                                  fontSize: blockSizeHorizontal(context) * 6,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      position: TimelineItemPosition.left,
-                      iconBackground: lightDodgerBlueColor,
-                      icon: Icon(
-                        Icons.healing,
-                        color: backgroundColor,
-                        size: blockSizeHorizontal(context) * 5,
-                      ),
-                      isFirst: true,
-                    ),
-                    TimelineModel(
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
-                        ),
-                        elevation: 4,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            blockSizeHorizontal(context) * 5,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '9:25 (47 min)',
-                                style: TextStyle(
-                                  color: lynchColor,
-                                  fontSize: blockSizeHorizontal(context) * 4,
-                                ),
-                              ),
-                              Text(
-                                'Meeting at Mile-End',
-                                style: TextStyle(
-                                  color: accentColor,
-                                  fontSize: blockSizeHorizontal(context) * 6,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      position: TimelineItemPosition.left,
-                      iconBackground: mediumPurpleColor,
-                      icon: Icon(
-                        FontAwesomeIcons.heart,
-                        color: backgroundColor,
-                        size: blockSizeHorizontal(context) * 5,
-                      ),
-                    ),
-                    TimelineModel(
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
-                        ),
-                        elevation: 4,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            blockSizeHorizontal(context) * 5,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '9:25 (47 min)',
-                                style: TextStyle(
-                                  color: lynchColor,
-                                  fontSize: blockSizeHorizontal(context) * 4,
-                                ),
-                              ),
-                              Text(
-                                'Meeting at Mile-End',
-                                style: TextStyle(
-                                  color: accentColor,
-                                  fontSize: blockSizeHorizontal(context) * 6,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      position: TimelineItemPosition.left,
-                      iconBackground: dodgerBlueColor,
-                      icon: Icon(
-                        Icons.fastfood,
-                        color: backgroundColor,
-                        size: blockSizeHorizontal(context) * 5,
-                      ),
-                      isLast: true,
-                    ),
-                    TimelineModel(
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
-                        ),
-                        elevation: 4,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            blockSizeHorizontal(context) * 5,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '9:00 (25 min)',
-                                style: TextStyle(
-                                  color: lynchColor,
-                                  fontSize: blockSizeHorizontal(context) * 4,
-                                ),
-                              ),
-                              Text(
-                                'Shopping',
-                                style: TextStyle(
-                                  color: accentColor,
-                                  fontSize: blockSizeHorizontal(context) * 6,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      position: TimelineItemPosition.left,
-                      iconBackground: lightDodgerBlueColor,
-                      icon: Icon(
-                        Icons.healing,
-                        color: backgroundColor,
-                        size: blockSizeHorizontal(context) * 5,
-                      ),
-                      isFirst: true,
-                    ),
-                    TimelineModel(
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
-                        ),
-                        elevation: 4,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            blockSizeHorizontal(context) * 5,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '9:25 (47 min)',
-                                style: TextStyle(
-                                  color: lynchColor,
-                                  fontSize: blockSizeHorizontal(context) * 4,
-                                ),
-                              ),
-                              Text(
-                                'Meeting at Mile-End',
-                                style: TextStyle(
-                                  color: accentColor,
-                                  fontSize: blockSizeHorizontal(context) * 6,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      position: TimelineItemPosition.left,
-                      iconBackground: mediumPurpleColor,
-                      icon: Icon(
-                        FontAwesomeIcons.heart,
-                        color: backgroundColor,
-                        size: blockSizeHorizontal(context) * 5,
-                      ),
-                    ),
-                    TimelineModel(
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
-                        ),
-                        elevation: 4,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            blockSizeHorizontal(context) * 5,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '9:25 (47 min)',
-                                style: TextStyle(
-                                  color: lynchColor,
-                                  fontSize: blockSizeHorizontal(context) * 4,
-                                ),
-                              ),
-                              Text(
-                                'Meeting at Mile-End',
-                                style: TextStyle(
-                                  color: accentColor,
-                                  fontSize: blockSizeHorizontal(context) * 6,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      position: TimelineItemPosition.left,
-                      iconBackground: dodgerBlueColor,
-                      icon: Icon(
-                        Icons.fastfood,
-                        color: backgroundColor,
-                        size: blockSizeHorizontal(context) * 5,
-                      ),
-                      isLast: true,
-                    ),
-                    TimelineModel(
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
-                        ),
-                        elevation: 4,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            blockSizeHorizontal(context) * 5,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '9:00 (25 min)',
-                                style: TextStyle(
-                                  color: lynchColor,
-                                  fontSize: blockSizeHorizontal(context) * 4,
-                                ),
-                              ),
-                              Text(
-                                'Shopping',
-                                style: TextStyle(
-                                  color: accentColor,
-                                  fontSize: blockSizeHorizontal(context) * 6,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      position: TimelineItemPosition.left,
-                      iconBackground: lightDodgerBlueColor,
-                      icon: Icon(
-                        Icons.healing,
-                        color: backgroundColor,
-                        size: blockSizeHorizontal(context) * 5,
-                      ),
-                      isFirst: true,
-                    ),
-                    TimelineModel(
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
-                        ),
-                        elevation: 4,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            blockSizeHorizontal(context) * 5,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '9:25 (47 min)',
-                                style: TextStyle(
-                                  color: lynchColor,
-                                  fontSize: blockSizeHorizontal(context) * 4,
-                                ),
-                              ),
-                              Text(
-                                'Meeting at Mile-End',
-                                style: TextStyle(
-                                  color: accentColor,
-                                  fontSize: blockSizeHorizontal(context) * 6,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      position: TimelineItemPosition.left,
-                      iconBackground: mediumPurpleColor,
-                      icon: Icon(
-                        FontAwesomeIcons.heart,
-                        color: backgroundColor,
-                        size: blockSizeHorizontal(context) * 5,
-                      ),
-                    ),
-                    TimelineModel(
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            15,
-                          ),
-                        ),
-                        elevation: 4,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            blockSizeHorizontal(context) * 5,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '9:25 (47 min)',
-                                style: TextStyle(
-                                  color: lynchColor,
-                                  fontSize: blockSizeHorizontal(context) * 4,
-                                ),
-                              ),
-                              Text(
-                                'Meeting at Mile-End',
-                                style: TextStyle(
-                                  color: accentColor,
-                                  fontSize: blockSizeHorizontal(context) * 6,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      position: TimelineItemPosition.left,
-                      iconBackground: dodgerBlueColor,
-                      icon: Icon(
-                        Icons.fastfood,
-                        color: backgroundColor,
-                        size: blockSizeHorizontal(context) * 5,
-                      ),
-                      isLast: true,
-                    ),
-                  ],
-                  position: TimelinePosition.Left,
-                ),
-              ),
+              ],
             ),
           ),
         );
