@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:homathon_project/src/providers/base_provider.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:location/location.dart';
 
 class MapProvider extends BaseProvider {
   BuildContext context;
@@ -15,6 +16,50 @@ class MapProvider extends BaseProvider {
     context = contextFromFunc;
     notifyListeners();
     await setCustomMapPin();
+  }
+
+  bool showLayers = false;
+
+  setLayers(bool value) {
+    showLayers = value;
+    notifyListeners();
+  }
+
+  MapType mapType = MapType.normal;
+
+  setMapType(MapType value) {
+    mapType = value;
+    notifyListeners();
+  }
+
+  bool showTraffic = false;
+
+  setTraffic(bool value) {
+    showTraffic = value;
+    notifyListeners();
+  }
+
+  currentLocation() async {
+    LocationData currentLocation;
+    var location = new Location();
+    try {
+      currentLocation = await location.getLocation();
+    } on Exception {
+      currentLocation = null;
+    }
+
+    googleMapController.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          bearing: 0,
+          target: LatLng(
+            currentLocation.latitude,
+            currentLocation.longitude,
+          ),
+          zoom: 17.0,
+        ),
+      ),
+    );
   }
 
   setCustomMapPin() async {
@@ -32,13 +77,6 @@ class MapProvider extends BaseProvider {
 
   Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
   MarkerId selectedMarker;
-
-  bool showTraffic = false;
-
-  setTraffic(bool value) {
-    showTraffic = value;
-    notifyListeners();
-  }
 
   onMapCreated(GoogleMapController mapController) async {
     googleMapController = mapController;
@@ -133,8 +171,9 @@ class MapProvider extends BaseProvider {
     final Marker tappedMarker = markers[markerId];
     if (tappedMarker != null) {
       if (markers.containsKey(selectedMarker)) {
-        final Marker resetOld = markers[selectedMarker]
-            .copyWith(iconParam: BitmapDescriptor.defaultMarker);
+        final Marker resetOld = markers[selectedMarker].copyWith(
+          iconParam: pinLocationIcon,
+        );
         markers[selectedMarker] = resetOld;
       }
       selectedMarker = markerId;

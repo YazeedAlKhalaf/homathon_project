@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:homathon_project/src/ui/views/map_view.dart';
+import 'package:homathon_project/src/ui/widgets/custom_divider.dart';
+import 'package:homathon_project/src/ui/widgets/rounded_button.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:homathon_project/src/providers/home_provider.dart';
 import 'package:homathon_project/src/ui/shared/app_colors.dart';
@@ -49,95 +52,80 @@ class _HomeViewState extends State<HomeView> {
           drawer: BusyOverlay(
             show: provider.busy,
             child: Drawer(
-              child: ListView(
+              child: Column(
                 children: <Widget>[
-                  UserAccountsDrawerHeader(
-                    margin: EdgeInsets.all(0),
-                    decoration: BoxDecoration(
-                      color: primaryColor,
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage(
-                          'assets/images/defaults/default_background_image.png',
-                        ),
-                      ),
-                    ),
-                    currentAccountPicture: CircleAvatar(
-                      backgroundColor: accentColor,
-                      backgroundImage: AssetImage(
-                        'assets/images/defaults/default_profile_image.png',
-                      ),
-                    ),
-                    accountName: Text(
-                      provider.utils.getFullName(
-                        currentUser: provider.currentUser,
-                      ),
-                    ),
-                    accountEmail: Text(
-                      provider.currentUser.email,
-                    ),
-                  ),
-                  Container(
-                    height: blockSizeHorizontal(context) * 2,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: primaryColor,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  Expanded(
+                    child: ListView(
                       children: <Widget>[
-                        Container(
-                          width: (blockSizeHorizontal(context) * 73.7) / 4,
-                          color: Color(0xff665EFF),
+                        UserAccountsDrawerHeader(
+                          margin: EdgeInsets.all(0),
+                          decoration: BoxDecoration(
+                            color: primaryColor,
+                            image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                'assets/images/defaults/default_background_image.png',
+                              ),
+                            ),
+                          ),
+                          currentAccountPicture: CircleAvatar(
+                            backgroundColor: accentColor,
+                            backgroundImage: AssetImage(
+                              'assets/images/defaults/default_profile_image.png',
+                            ),
+                          ),
+                          accountName: Text(
+                            provider.utils.getFullName(
+                              currentUser: provider.currentUser,
+                            ),
+                          ),
+                          accountEmail: Text(
+                            provider.currentUser.email,
+                          ),
                         ),
-                        Container(
-                          width: (blockSizeHorizontal(context) * 73.7) / 4,
-                          color: Color(0xff5773FF),
+                        CustomDivider(),
+                        CustomCard(
+                          leadingIcon: Icons.person,
+                          titleText: 'Profile',
+                          onTap: () {
+                            provider.navigateToProfileView();
+                          },
                         ),
-                        Container(
-                          width: (blockSizeHorizontal(context) * 73.7) / 4,
-                          color: Color(0xff3497FD),
-                        ),
-                        Container(
-                          width: (blockSizeHorizontal(context) * 73.7) / 4,
-                          color: Color(0xff3ACCE1),
+                        CustomCard(
+                          leadingIcon: Icons.history,
+                          titleText: 'History',
+                          onTap: () {
+                            provider.navigateToHistoryView();
+                          },
                         ),
                       ],
                     ),
                   ),
-                  CustomCard(
-                    leadingIcon: Icons.person,
-                    titleText: 'Profile',
-                    onTap: () {
-                      provider.navigateToProfileView();
-                    },
-                  ),
-                  CustomCard(
-                    leadingIcon: Icons.map,
-                    titleText: 'Map',
-                    onTap: () async {
-                      await provider.navigateToMapView();
-                    },
-                  ),
-                  CustomCard(
-                    leadingIcon: Icons.history,
-                    titleText: 'History',
-                    onTap: () {
-                      provider.navigateToHistoryView();
-                    },
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: blockSizeHorizontal(context) * 5,
+                      ),
+                      child: RoundedButton(
+                        text: 'Sign Out',
+                        padding: EdgeInsets.symmetric(
+                          vertical: blockSizeHorizontal(context) * 3,
+                          horizontal: blockSizeHorizontal(context) * 5,
+                        ),
+                        buttonColor: dangerColor,
+                        fontSize: blockSizeHorizontal(context) * 5,
+                        onPressed: () async {
+                          await provider.signOut();
+                        },
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
           ),
-          body: SafeArea(
-            child: BusyOverlay(
-              show: provider.busy,
-              child: Column(
-                children: <Widget>[],
-              ),
-            ),
-          ),
+          body: MapView(),
         );
       },
     );

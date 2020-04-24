@@ -4,7 +4,6 @@ import 'package:homathon_project/src/providers/profile_provider.dart';
 import 'package:homathon_project/src/ui/shared/app_colors.dart';
 import 'package:homathon_project/src/ui/shared/ui_helpers.dart';
 import 'package:homathon_project/src/ui/widgets/custom_square.dart';
-import 'package:homathon_project/src/ui/widgets/rounded_button.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -154,14 +153,14 @@ class ProfileViewState extends State<ProfileView> {
                       SizedBox(
                         height: blockSizeHorizontal(context) * 8,
                       ),
-                      RoundedButton(
-                        text: 'Sign Out',
-                        buttonColor: Colors.redAccent,
-                        fontSize: blockSizeHorizontal(context) * 5,
-                        onPressed: () async {
-                          await provider.signOut();
-                        },
-                      ),
+                      // RoundedButton(
+                      //   text: 'Sign Out',
+                      //   buttonColor: Colors.redAccent,
+                      //   fontSize: blockSizeHorizontal(context) * 5,
+                      //   onPressed: () async {
+                      //     await provider.signOut();
+                      //   },
+                      // ),
                     ],
                   ),
                 ],
