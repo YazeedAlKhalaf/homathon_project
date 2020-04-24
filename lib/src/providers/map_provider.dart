@@ -7,11 +7,23 @@ import 'package:flutter/services.dart' show rootBundle;
 
 class MapProvider extends BaseProvider {
   BuildContext context;
+  BitmapDescriptor pinLocationIcon;
 
   initialize({
     @required BuildContext contextFromFunc,
-  }) {
+  }) async {
     context = contextFromFunc;
+    notifyListeners();
+    await setCustomMapPin();
+  }
+
+  setCustomMapPin() async {
+    pinLocationIcon = await BitmapDescriptor.fromAssetImage(
+      ImageConfiguration(
+        devicePixelRatio: 2.5,
+      ),
+      'assets/images/heat_spot.png',
+    );
     notifyListeners();
   }
 
@@ -60,6 +72,7 @@ class MapProvider extends BaseProvider {
       final Marker marker = Marker(
         markerId: markerId,
         position: latLng,
+        icon: pinLocationIcon,
         infoWindow: InfoWindow(
           title: markerIdVal,
           snippet: '$i Cases Found!',

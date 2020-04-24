@@ -61,6 +61,7 @@ flutter:
 
   assets:
     - assets/icon/
+    - assets/images/
     - assets/images/gif/
     - assets/images/defaults/
     - assets/map_styles/

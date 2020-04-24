@@ -32,16 +32,19 @@ class EditProfileProvider extends BaseProvider {
       } else {
         // User profile image exists
         return CachedImage(
+          height: blockSizeHorizontal(context) * 5,
+          width: blockSizeHorizontal(context) * 5,
           url: currentUser.profilePhoto,
         );
       }
     } else {
       // New profile image
-      return Image.file(
-        _newProfilePhoto,
-        width: blockSizeHorizontal(context) * 30,
-        height: blockSizeHorizontal(context) * 30,
-      );
+      print(_newProfilePhoto.path);
+      // return Image.file(
+      //   _newProfilePhoto,
+      //   width: blockSizeHorizontal(context) * 30,
+      //   height: blockSizeHorizontal(context) * 30,
+      // );
     }
   }
 

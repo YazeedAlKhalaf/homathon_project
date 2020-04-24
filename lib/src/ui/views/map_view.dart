@@ -43,9 +43,6 @@ class _MapViewState extends State<MapView> {
                     ),
                     myLocationEnabled: true,
                     myLocationButtonEnabled: true,
-                    // onTap: (latLng) {
-                    //   provider.add(context, latLng);
-                    // },
                     markers: Set<Marker>.of(provider.markers.values),
                   ),
 
