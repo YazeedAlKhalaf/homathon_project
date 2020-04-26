@@ -35,9 +35,7 @@ class ProfileViewState extends State<ProfileView> {
                   Icons.edit,
                   color: primaryColor,
                 ),
-                onPressed: () {
-                  provider.navigateToEditProfileView();
-                },
+                onPressed: () {},
               ),
             ],
           ),
