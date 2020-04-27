@@ -29,10 +29,10 @@ class _HomeViewState extends State<HomeView> {
             centerTitle: true,
             elevation: 0.3,
             title: Text(
-              'APP NAME',
+              'Kollona Masoal',
               style: TextStyle(
                 color: textColorWhite,
-                fontSize: blockSizeHorizontal(context) * 10,
+                fontSize: blockSizeHorizontal(context) * 7,
                 fontWeight: FontWeight.bold,
               ),
             ),
