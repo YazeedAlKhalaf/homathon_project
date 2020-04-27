@@ -34,11 +34,10 @@ class _StartupViewState extends State<StartupView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  // TODO(yazeed): add logo here
-                  // Image.asset(
-                  //   'assets/icon/icon.png',
-                  //   width: blockSizeHorizontal(context) * 20,
-                  // ),
+                  Image.asset(
+                    'assets/icon/icon.png',
+                    width: blockSizeHorizontal(context) * 25,
+                  ),
                   SizedBox(
                     height: blockSizeHorizontal(context) * 5,
                   ),
