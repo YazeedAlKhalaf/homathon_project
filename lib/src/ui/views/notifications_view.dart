@@ -20,74 +20,93 @@ class _NotificationsViewState extends State<NotificationsView> {
         NotificationsProvider provider,
         Widget child,
       ) {
-        return Scaffold(
-          backgroundColor: primaryColor,
-          appBar: AppBar(
-            elevation: 0,
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.search,
-                  color: backgroundColor,
-                  size: blockSizeHorizontal(context) * 7,
+        return Directionality(
+          textDirection:
+              provider.getLocalizationDelegate(context).currentLocale ==
+                      Locale('ar')
+                  ? TextDirection.rtl
+                  : TextDirection.ltr,
+          child: Scaffold(
+            backgroundColor: primaryColor,
+            appBar: AppBar(
+              elevation: 0,
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    Icons.search,
+                    color: backgroundColor,
+                    size: blockSizeHorizontal(context) * 7,
+                  ),
+                  onPressed: () {},
                 ),
-                onPressed: () {},
-              ),
-            ],
-            bottom: PreferredSize(
-              child: Padding(
-                padding: EdgeInsets.all(
-                  blockSizeHorizontal(context) * 3,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      'Notifications',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        color: textColorWhite,
-                        fontSize: blockSizeHorizontal(context) * 10,
+              ],
+              bottom: PreferredSize(
+                child: Padding(
+                  padding: EdgeInsets.all(
+                    blockSizeHorizontal(context) * 3,
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        provider.notificationsViewTranslate(
+                          'appBar.title',
+                        ),
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          color: textColorWhite,
+                          fontSize: blockSizeHorizontal(context) * 10,
+                        ),
                       ),
+                    ],
+                  ),
+                ),
+                preferredSize: Size(
+                  screenWidth(context),
+                  blockSizeHorizontal(context) * 15,
+                ),
+              ),
+            ),
+            body: SafeArea(
+              child: Center(
+                child: ListView(
+                  children: <Widget>[
+                    CustomCard(
+                      leadingIcon: Icons.notifications_active,
+                      titleText: provider.notificationsViewTranslate(
+                        'body.customCardCaseDetectedText',
+                      ),
+                      onTap: () {},
+                    ),
+                    CustomCard(
+                      leadingIcon: Icons.notifications,
+                      titleText: provider.notificationsViewTranslate(
+                        'body.customCardCaseDetectedText',
+                      ),
+                      onTap: () {},
+                    ),
+                    CustomCard(
+                      leadingIcon: Icons.notifications,
+                      titleText: provider.notificationsViewTranslate(
+                        'body.customCardCaseDetectedText',
+                      ),
+                      onTap: () {},
+                    ),
+                    CustomCard(
+                      leadingIcon: Icons.notifications,
+                      titleText: provider.notificationsViewTranslate(
+                        'body.customCardCaseDetectedText',
+                      ),
+                      onTap: () {},
+                    ),
+                    CustomCard(
+                      leadingIcon: Icons.notifications,
+                      titleText: provider.notificationsViewTranslate(
+                        'body.customCardCaseDetectedText',
+                      ),
+                      onTap: () {},
                     ),
                   ],
                 ),
-              ),
-              preferredSize: Size(
-                screenWidth(context),
-                blockSizeHorizontal(context) * 15,
-              ),
-            ),
-          ),
-          body: SafeArea(
-            child: Center(
-              child: ListView(
-                children: <Widget>[
-                  CustomCard(
-                    leadingIcon: Icons.notifications_active,
-                    titleText: 'New Case Detected!',
-                    onTap: () {},
-                  ),
-                  CustomCard(
-                    leadingIcon: Icons.notifications,
-                    titleText: 'New Case Detected!',
-                    onTap: () {},
-                  ),
-                  CustomCard(
-                    leadingIcon: Icons.notifications,
-                    titleText: 'New Case Detected!',
-                    onTap: () {},
-                  ),
-                  CustomCard(
-                    leadingIcon: Icons.notifications,
-                    titleText: 'New Case Detected!',
-                    onTap: () {},
-                  ),
-                  CustomCard(
-                    leadingIcon: Icons.notifications,
-                    titleText: 'New Case Detected!',
-                    onTap: () {},
-                  ),
-                ],
               ),
             ),
           ),

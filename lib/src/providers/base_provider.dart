@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 import 'package:homathon_project/src/models/user.dart';
 import 'package:homathon_project/src/services/authentication_service.dart';
 import 'package:homathon_project/src/services/firestore_service.dart';
@@ -73,5 +74,13 @@ class BaseProvider extends ChangeNotifier {
     if (!currentFocus.hasPrimaryFocus) {
       currentFocus.unfocus();
     }
+  }
+
+  LocalizationDelegate getLocalizationDelegate(BuildContext context) {
+    return LocalizedApp.of(context).delegate;
+  }
+
+  String kTranslate(String viewName, String keyWithoutViewName) {
+    return translate("$viewName.$keyWithoutViewName");
   }
 }

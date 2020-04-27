@@ -15,7 +15,7 @@ class TextLink extends StatelessWidget {
   final String semanticsLabel;
   final TextWidthBasis textWidthBasis;
 
-  const TextLink(
+  TextLink(
     this.text, {
     this.onPressed,
     this.style,

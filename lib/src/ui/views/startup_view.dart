@@ -22,26 +22,33 @@ class _StartupViewState extends State<StartupView> {
         StartupProvider provider,
         Widget child,
       ) {
-        return Scaffold(
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                // TODO(yazeed): add logo here
-                // Image.asset(
-                //   'assets/icon/icon.png',
-                //   width: blockSizeHorizontal(context) * 20,
-                // ),
-                SizedBox(
-                  height: blockSizeHorizontal(context) * 5,
-                ),
-                CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(
-                    primaryColor,
+        return Directionality(
+          textDirection:
+              provider.getLocalizationDelegate(context).currentLocale ==
+                      Locale('ar')
+                  ? TextDirection.rtl
+                  : TextDirection.ltr,
+          child: Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  // TODO(yazeed): add logo here
+                  // Image.asset(
+                  //   'assets/icon/icon.png',
+                  //   width: blockSizeHorizontal(context) * 20,
+                  // ),
+                  SizedBox(
+                    height: blockSizeHorizontal(context) * 5,
                   ),
-                ),
-              ],
+                  CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation(
+                      primaryColor,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );

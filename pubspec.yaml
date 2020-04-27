@@ -49,6 +49,13 @@ dependencies:
   location: ^3.0.2
   # permission handler
   permission_handler: ^5.0.0+hotfix.4
+  # flutter translate
+  flutter_translate: ^1.6.0
+  # flutter localization
+  flutter_localizations:
+    sdk: flutter
+  # shared preferences
+  shared_preferences: ^0.5.7
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +78,7 @@ flutter:
     - assets/images/gif/
     - assets/images/defaults/
     - assets/map_styles/
+    - assets/i18n/
 
   fonts:
     - family: Gibson
@@ -80,3 +88,10 @@ flutter:
           style: italic
         - asset: assets/fonts/gibson_bold.ttf
           weight: 700
+    - family: Tajawal
+      fonts:
+        - asset: assets/fonts/Tajawal-Regular.ttf
+        - asset: assets/fonts/Tajawal-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Tajawal-Light.ttf
+          weight: 300

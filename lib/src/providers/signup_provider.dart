@@ -29,46 +29,45 @@ class SignupProvider extends BaseProvider {
         navigationService.navigateToAndRemoveUntill(HomeViewRoute);
       } else {
         await dialogService.showDialog(
-          title: 'Something went wrong!',
-          description: 'It\'s our fault, Please try again later.',
+          title: signUpViewTranslate('dialog.serverError.title'),
+          description: signUpViewTranslate('dialog.serverError.description'),
         );
       }
     } else {
       switch (result) {
         case 'Given String is empty or null':
           await dialogService.showDialog(
-            title: 'Something went wrong!',
+            title: signUpViewTranslate('dialog.fieldsEmptyError.title'),
             description:
-                'Some or all fields are empty! \nAll fields are required',
+                signUpViewTranslate('dialog.fieldsEmptyError.description'),
           );
           break;
         case 'The email address is badly formatted.':
           await dialogService.showDialog(
-            title: 'Something went wrong!',
+            title: signUpViewTranslate('dialog.emailErrorBad.title'),
             description:
-                'The email you entered is wrong or can\'t be used! \nPlease try again.',
+                signUpViewTranslate('dialog.emailErrorBad.description'),
           );
           break;
         case 'The given password is invalid. [ Password should be at least 6 characters ]':
           await dialogService.showDialog(
-            title: 'Something went wrong!',
+            title: signUpViewTranslate('dialog.passwordError.title'),
             description:
-                'The password you entered is invalid! \nPassword must be at least 6 characters.',
+                signUpViewTranslate('dialog.passwordError.description'),
           );
           break;
         case 'The email address is already in use by another account.':
           await dialogService.showDialog(
-            title: 'Something went wrong!',
+            title: signUpViewTranslate('dialog.emailErrorUsed.title'),
             description:
-                'The email you entered is already in use! \nPlease try using another one.',
+                signUpViewTranslate('dialog.emailErrorUsed.description'),
           );
           break;
         default:
           print(result);
           await dialogService.showDialog(
-            title: 'Something went wrong!',
-            description:
-                'It\'s our fault, Please try again later. \nIf the problem persists, contact us at: yazeedfady@gmail.com',
+            title: signUpViewTranslate('dialog.defaultError.title'),
+            description: signUpViewTranslate('dialog.defaultError.description'),
           );
       }
     }
@@ -76,5 +75,9 @@ class SignupProvider extends BaseProvider {
 
   void navigateToLogin() {
     navigationService.navigateToAndRemoveUntill(LoginViewRoute);
+  }
+
+  String signUpViewTranslate(String keyWithoutViewName) {
+    return kTranslate(SignupViewRoute, keyWithoutViewName);
   }
 }

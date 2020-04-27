@@ -1,3 +1,4 @@
+const String StartupViewRoute = 'StartupView';
 const String HomeViewRoute = 'HomeView';
 const String LoginViewRoute = 'LoginView';
 const String SignupViewRoute = 'SignupView';

@@ -22,146 +22,152 @@ class ProfileViewState extends State<ProfileView> {
         ProfileProvider provider,
         Widget child,
       ) {
-        return Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            iconTheme: IconThemeData(
-              color: primaryColor,
-            ),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.edit,
-                  color: primaryColor,
-                ),
-                onPressed: () {},
+        return Directionality(
+          textDirection:
+              provider.getLocalizationDelegate(context).currentLocale ==
+                      Locale('ar')
+                  ? TextDirection.rtl
+                  : TextDirection.ltr,
+          child: Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              iconTheme: IconThemeData(
+                color: primaryColor,
               ),
-            ],
-          ),
-          body: SafeArea(
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  CircleAvatar(
-                    radius: blockSizeHorizontal(context) * 20,
-                    backgroundImage: provider.currentUser.profilePhoto == null
-                        ? AssetImage(
-                            'assets/images/defaults/default_profile_image.png',
-                          )
-                        : CachedNetworkImageProvider(
-                            provider.currentUser.profilePhoto,
-                          ),
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    Icons.edit,
+                    color: primaryColor,
                   ),
-                  SizedBox(
-                    height: blockSizeHorizontal(context) * 5,
-                  ),
-                  Text(
-                    provider.utils.getFullName(
-                      currentUser: provider.currentUser,
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            body: SafeArea(
+              child: Center(
+                child: Column(
+                  children: <Widget>[
+                    CircleAvatar(
+                      radius: blockSizeHorizontal(context) * 20,
+                      backgroundImage: provider.currentUser.profilePhoto == null
+                          ? AssetImage(
+                              'assets/images/defaults/default_profile_image.png',
+                            )
+                          : CachedNetworkImageProvider(
+                              provider.currentUser.profilePhoto,
+                            ),
                     ),
-                    style: TextStyle(
-                      fontSize: blockSizeHorizontal(context) * 10,
-                      color: primaryColor,
+                    SizedBox(
+                      height: blockSizeHorizontal(context) * 5,
                     ),
-                  ),
-                  SizedBox(
-                    height: blockSizeHorizontal(context) * 2,
-                  ),
-                  Text(
-                    provider.currentUser.email,
-                    style: TextStyle(
-                      fontSize: blockSizeHorizontal(context) * 5,
-                      color: lynchColor,
+                    Text(
+                      provider.utils.getFullName(
+                        currentUser: provider.currentUser,
+                      ),
+                      style: TextStyle(
+                        fontSize: blockSizeHorizontal(context) * 10,
+                        color: primaryColor,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: blockSizeHorizontal(context) * 8,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          CustomSquare(
-                            onTap: () {},
-                            iconData: FontAwesomeIcons.comments,
-                            iconColor: pictonBlueColor,
-                            text: 'Chats',
-                            textStyle: TextStyle(
-                              fontSize: blockSizeHorizontal(context) * 5,
-                              color: lynchColor,
-                            ),
-                          ),
-                          CustomSquare(
-                            onTap: () {},
-                            iconData: FontAwesomeIcons.archive,
-                            iconColor: lightDodgerBlueColor,
-                            text: 'Docks',
-                            textStyle: TextStyle(
-                              fontSize: blockSizeHorizontal(context) * 5,
-                              color: lynchColor,
-                            ),
-                          ),
-                          CustomSquare(
-                            onTap: () {},
-                            iconData: FontAwesomeIcons.locationArrow,
-                            iconColor: cornFlowerBlueColor,
-                            text: 'Location',
-                            textStyle: TextStyle(
-                              fontSize: blockSizeHorizontal(context) * 5,
-                              color: lynchColor,
-                            ),
-                          ),
-                        ],
+                    SizedBox(
+                      height: blockSizeHorizontal(context) * 2,
+                    ),
+                    Text(
+                      provider.currentUser.email,
+                      style: TextStyle(
+                        fontSize: blockSizeHorizontal(context) * 5,
+                        color: lynchColor,
                       ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          CustomSquare(
-                            onTap: () {},
-                            iconData: FontAwesomeIcons.userFriends,
-                            iconColor: pictonBlueColor,
-                            text: 'Friends',
-                            textStyle: TextStyle(
-                              fontSize: blockSizeHorizontal(context) * 5,
-                              color: lynchColor,
+                    ),
+                    SizedBox(
+                      height: blockSizeHorizontal(context) * 8,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            CustomSquare(
+                              onTap: () {},
+                              iconData: FontAwesomeIcons.comments,
+                              iconColor: pictonBlueColor,
+                              text: provider.profileViewTranslate(
+                                'body.chatsText',
+                              ),
+                              textStyle: TextStyle(
+                                fontSize: blockSizeHorizontal(context) * 5,
+                                color: lynchColor,
+                              ),
                             ),
-                          ),
-                          CustomSquare(
-                            onTap: () {},
-                            iconData: FontAwesomeIcons.userLock,
-                            iconColor: lightDodgerBlueColor,
-                            text: 'Settings',
-                            textStyle: TextStyle(
-                              fontSize: blockSizeHorizontal(context) * 5,
-                              color: lynchColor,
+                            CustomSquare(
+                              onTap: () {},
+                              iconData: FontAwesomeIcons.archive,
+                              iconColor: lightDodgerBlueColor,
+                              text: provider.profileViewTranslate(
+                                'body.docksText',
+                              ),
+                              textStyle: TextStyle(
+                                fontSize: blockSizeHorizontal(context) * 5,
+                                color: lynchColor,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: blockSizeHorizontal(context) * 8,
-                      ),
-                      // RoundedButton(
-                      //   text: 'Sign Out',
-                      //   buttonColor: Colors.redAccent,
-                      //   fontSize: blockSizeHorizontal(context) * 5,
-                      //   onPressed: () async {
-                      //     await provider.signOut();
-                      //   },
-                      // ),
-                    ],
-                  ),
-                ],
+                            CustomSquare(
+                              onTap: () {},
+                              iconData: FontAwesomeIcons.locationArrow,
+                              iconColor: cornFlowerBlueColor,
+                              text: provider.profileViewTranslate(
+                                'body.locationText',
+                              ),
+                              textStyle: TextStyle(
+                                fontSize: blockSizeHorizontal(context) * 5,
+                                color: lynchColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            CustomSquare(
+                              onTap: () {},
+                              iconData: FontAwesomeIcons.userFriends,
+                              iconColor: pictonBlueColor,
+                              text: provider.profileViewTranslate(
+                                'body.friendsText',
+                              ),
+                              textStyle: TextStyle(
+                                fontSize: blockSizeHorizontal(context) * 5,
+                                color: lynchColor,
+                              ),
+                            ),
+                            CustomSquare(
+                              onTap: () {},
+                              iconData: FontAwesomeIcons.userLock,
+                              iconColor: lightDodgerBlueColor,
+                              text: provider.profileViewTranslate(
+                                'body.settingsText',
+                              ),
+                              textStyle: TextStyle(
+                                fontSize: blockSizeHorizontal(context) * 5,
+                                color: lynchColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

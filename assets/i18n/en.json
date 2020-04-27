@@ -1,0 +1,175 @@
+{
+  "AppInfo": {
+    "appName": "Kollona Masoal"
+  },
+  "StartupView": {
+    "dialog": {
+      "locationServiceDefault": {
+        "title": "OOPS!",
+        "description": "You can't use the app without allowing the locations service. \nPlease relaunch the app or go to settings and allow location usage."
+      },
+      "locationServiceRestricted": {
+        "title": "OOPS!",
+        "description": "You can't use the app without allowing the locations service. \nThe location is restricted on your device, please tell you, parent or administrator, to allow it so that you can use the app."
+      },
+      "locationServiceDenied": {
+        "title": "OOPS!",
+        "description": "You can't use the app without allowing the locations service.\nPlease relaunch the app or go to settings and allow location usage."
+      },
+      "locationServicePermenantlyDenied": {
+        "title": "OOPS!",
+        "description": "You can't use the app without allowing the locations service, \nPlease go to settings and allow location usage."
+      }
+    }
+  },
+  "LoginView": {
+    "title": "Login",
+    "emailLabelText": "Email",
+    "emailHintText": "e.g example@example.com",
+    "passwordLabelText": "Password",
+    "passwordHintText": "Enter your own password :-)",
+    "loginButtonText": "Login",
+    "textLinkNoAccount": "Have no account? Create one now!",
+    "dialog": {
+      "serverError": {
+        "title": "Something went wrong!",
+        "description": "It's our fault, Please try again later."
+      },
+      "fieldsEmptyError": {
+        "title": "Something went wrong!",
+        "description": "Some or all fields are empty! \nAll fields are required."
+      },
+      "emailErrorBad": {
+        "title": "Something went wrong!",
+        "description": "The email you entered is wrong or can't be used! \nPlease try again."
+      },
+      "passwordError": {
+        "title": "Something went wrong!",
+        "description": "The password you entered is invalid! \nPassword must be at least 6 characters."
+      },
+      "noUserError": {
+        "title": "Something went wrong!",
+        "description": "This email is not associated with any account. Please create a new account."
+      },
+      "defaultError": {
+        "title": "Something went wrong!",
+        "description": "It's our fault, Please try again later. \nIf the problem persists, contact us at yazeedfady@gmail.com"
+      }
+    }
+  },
+  "SignupView": {
+    "title": "Sign Up",
+    "firstNameLabelText": "First Name",
+    "firstNameHintText": "Enter your first name",
+    "lastNameLabelText": "Last Name",
+    "lastNameHintText": "Enter your last name",
+    "idNumberOrIqamaLabelText": "ID Number or Iqama",
+    "idNumberOrIqamaHintText": "Enter your own ID Number or Iqama",
+    "usernameLabelText": "Username",
+    "usernameHintText": "Enter your own username",
+    "emailLabelText": "Email",
+    "emailHintText": "e.g example@example.com",
+    "passwordLabelText": "Password",
+    "passwordHintText": "Enter your own password :-)",
+    "signupButtonText": "Sign Up",
+    "textLinkHaveAnAccount": "Already have an account? Login now!",
+    "dialog": {
+      "serverError": {
+        "title": "Something went wrong!",
+        "description": "It's our fault, Please try again later."
+      },
+      "fieldsEmptyError": {
+        "title": "Something went wrong!",
+        "description": "Some or all fields are empty! \nAll fields are required."
+      },
+      "emailErrorBad": {
+        "title": "Something went wrong!",
+        "description": "The email you entered is wrong or can't be used! \nPlease try again."
+      },
+      "passwordError": {
+        "title": "Something went wrong!",
+        "description": "The password you entered is invalid! \nPassword must be at least 6 characters."
+      },
+      "emailErrorUsed": {
+        "title": "Something went wrong!",
+        "description": "The email you entered is already in use! \nPlease try using another one."
+      },
+      "defaultError": {
+        "title": "Something went wrong!",
+        "description": "It's our fault, Please try again later. \nIf the problem persists, contact us at yazeedfady@gmail.com"
+      }
+    }
+  },
+  "HomeView": {
+    "appBar": {
+      "title": "Kollona Masoal"
+    },
+    "drawer": {
+      "profileCardTitle": "Profile",
+      "historyCardTitle": "History",
+      "signOutButtonText": "Sign Out"
+    },
+    "dialog": {
+      "signOutDialog": {
+        "title": "Are You Sure?",
+        "description": "Are you sure you wanna sign out?",
+        "confirmationTitle": "Yes, I'm Pretty Sure!",
+        "cancelTitle": "Nope"
+      }
+    }
+  },
+  "MapView": {
+    "layers": {
+      "mapTypeText": "Map Type",
+      "defaultText": "Default",
+      "satelliteText": "Satellite",
+      "terrainText": "Terrain",
+      "settingsText": "Settings",
+      "trafficText": "Traffic"
+    }
+  },
+  "NotificationsView": {
+    "appBar": {
+      "title": "Notifications"
+    },
+    "body": {
+      "customCardCaseDetectedText": "New Case Detected!"
+    }
+  },
+  "HistoryView": {
+    "appBar": {
+      "title": "History"
+    },
+    "body": {
+      "card1": {
+        "dateTimeText": "5:25 pm | 11/03/2020",
+        "title": "McDonald's - Khozama"
+      },
+      "card2": {
+        "dateTimeText": "3:29 pm | 11/03/2020",
+        "title": "Grandmother's House"
+      },
+      "card3": {
+        "dateTimeText": "12:29 pm | 10/03/2020",
+        "title": "Al-Nakheel Mall"
+      }
+    }
+  },
+  "ProfileView": {
+    "body": {
+      "chatsText": "Chats",
+      "docksText": "Docks",
+      "locationText": "Location",
+      "friendsText": "Friends",
+      "settingsText": "Settings"
+    }
+  },
+  "widgets": {
+    "busyOverlay": {
+      "titleText": "Please wait..."
+    },
+    "customCard": {
+      "subtitleText": "Learn More"
+    }
+  }
+}

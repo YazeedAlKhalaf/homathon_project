@@ -24,19 +24,20 @@ class CachedImage extends StatelessWidget {
         height: height ?? screenWidth(context) * 0.65,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(
-            screenWidth(context) * 0.015,
+            50,
           ),
           child: CachedNetworkImage(
-              imageUrl: url,
-              placeholder: (BuildContext context, String url) {
-                return Center(
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation(
-                      primaryColor,
-                    ),
+            imageUrl: url,
+            placeholder: (BuildContext context, String url) {
+              return Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation(
+                    primaryColor,
                   ),
-                );
-              }),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

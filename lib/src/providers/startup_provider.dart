@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter_translate/flutter_translate.dart';
 import 'package:homathon_project/src/constants/route_names.dart';
 import 'package:homathon_project/src/providers/base_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -17,21 +18,23 @@ class StartupProvider extends BaseProvider {
           await handleLogin();
         } else {
           dialogService.showDialog(
-            title: 'OOPS!',
-            description: '''
-                You can\'t use the app without allowing the locations service.
-                Please relaunch the app or go to settings and allow location usage.
-                ''',
+            title: startupViewTranslate(
+              'dialog.locationServiceDefault.title',
+            ),
+            description: startupViewTranslate(
+              'dialog.locationServiceDefault.description',
+            ),
           );
         }
         break;
       case PermissionStatus.restricted:
         dialogService.showDialog(
-          title: 'OOPS!',
-          description: '''
-                You can\'t use the app without allowing the locations service.
-                The location is restricted on your device, please tell you parent or administartor to allow it so that you can use the app.
-                ''',
+          title: startupViewTranslate(
+            'dialog.locationServiceRestricted.title',
+          ),
+          description: startupViewTranslate(
+            'dialog.locationServiceRestricted.description',
+          ),
         );
 
         break;
@@ -42,20 +45,23 @@ class StartupProvider extends BaseProvider {
           await handleLogin();
         } else {
           dialogService.showDialog(
-            title: 'OOPS!',
-            description: '''
-                You can\'t use the app without allowing the locations service.\nPlease relaunch the app or go to settings and allow location usage.
-                ''',
+            title: startupViewTranslate(
+              'dialog.locationServiceDenied.description',
+            ),
+            description: startupViewTranslate(
+              'dialog.locationServiceDenied.description',
+            ),
           );
         }
         break;
       case PermissionStatus.permanentlyDenied:
         dialogService.showDialog(
-          title: 'OOPS!',
-          description: '''
-                You can\'t use the app without allowing the locations service,
-                Please go to settings and allow location usage.
-                ''',
+          title: startupViewTranslate(
+            'dialog.locationServicePermenantlyDenied.title',
+          ),
+          description: startupViewTranslate(
+            'dialog.locationServicePermenantlyDenied.title',
+          ),
         );
         break;
       default:
@@ -69,5 +75,9 @@ class StartupProvider extends BaseProvider {
     } else {
       navigationService.navigateToAndRemoveUntill(LoginViewRoute);
     }
+  }
+
+  String startupViewTranslate(String keyWithoutViewName) {
+    return kTranslate(StartupViewRoute, keyWithoutViewName);
   }
 }

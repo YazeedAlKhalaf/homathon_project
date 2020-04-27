@@ -5,6 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:homathon_project/src/providers/base_provider.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:location/location.dart';
+import 'package:homathon_project/src/constants/route_names.dart';
 
 class MapProvider extends BaseProvider {
   BuildContext context;
@@ -118,13 +119,13 @@ class MapProvider extends BaseProvider {
         onTap: () {
           onMarkerTapped(markerId);
         },
-        onDragEnd: (LatLng position) {
-          onMarkerDragEnd(
-            markerId,
-            position,
-            context,
-          );
-        },
+        // onDragEnd: (LatLng position) {
+        //   onMarkerDragEnd(
+        //     markerId,
+        //     position,
+        //     context,
+        //   );
+        // },
       );
 
       markers[markerId] = marker;
@@ -188,7 +189,10 @@ class MapProvider extends BaseProvider {
   }
 
   void onMarkerDragEnd(
-      MarkerId markerId, LatLng newPosition, BuildContext context) async {
+    MarkerId markerId,
+    LatLng newPosition,
+    BuildContext context,
+  ) async {
     final Marker tappedMarker = markers[markerId];
     if (tappedMarker != null) {
       await dialogService.showDialog(
@@ -199,5 +203,9 @@ class MapProvider extends BaseProvider {
         ''',
       );
     }
+  }
+
+  String mapViewTranslate(String keyWithoutViewName) {
+    return kTranslate(MapViewRoute, keyWithoutViewName);
   }
 }

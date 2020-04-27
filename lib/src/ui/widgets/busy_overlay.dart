@@ -1,3 +1,4 @@
+import 'package:flutter_translate/flutter_translate.dart';
 import 'package:homathon_project/src/ui/shared/app_colors.dart';
 import 'package:homathon_project/src/ui/shared/ui_helpers.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class BusyOverlay extends StatelessWidget {
 
   const BusyOverlay({
     this.child,
-    this.title = 'Please wait...',
+    this.title,
     this.show = false,
   });
 
@@ -47,7 +48,10 @@ class BusyOverlay extends StatelessWidget {
                             height: blockSizeHorizontal(context) * 5,
                           ),
                           Text(
-                            title,
+                            title ??
+                                translate(
+                                  'widgets.busyOverlay.titleText',
+                                ),
                             style: TextStyle(
                               fontSize: blockSizeHorizontal(context) * 5,
                               fontWeight: FontWeight.bold,

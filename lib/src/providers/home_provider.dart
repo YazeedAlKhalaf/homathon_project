@@ -20,11 +20,19 @@ class HomeProvider extends BaseProvider {
   signOut() async {
     setBusy(true);
     DialogResponse dialogResponse = await dialogService.showConfirmationDialog(
-      title: 'Are You Sure?',
+      title: homeViewTranslate(
+        'dialog.signOutDialog.title',
+      ),
       image: 'assets/images/gif/are_you_sure.gif',
-      description: 'Are you sure you wanna sign out?',
-      confirmationTitle: 'Yes, I\'m Pretty Sure!',
-      cancelTitle: 'Nope',
+      description: homeViewTranslate(
+        'dialog.signOutDialog.description',
+      ),
+      confirmationTitle: homeViewTranslate(
+        'dialog.signOutDialog.confirmationTitle',
+      ),
+      cancelTitle: homeViewTranslate(
+        'dialog.signOutDialog.cancelTitle',
+      ),
     );
 
     if (dialogResponse.confirmed) {
@@ -33,5 +41,9 @@ class HomeProvider extends BaseProvider {
     } else {
       setBusy(false);
     }
+  }
+
+  String homeViewTranslate(String keyWithoutViewName) {
+    return kTranslate(HomeViewRoute, keyWithoutViewName);
   }
 }

@@ -1,0 +1,175 @@
+{
+  "AppInfo": {
+    "appName": "كلنا مسؤول"
+  },
+  "StartupView": {
+    "dialog": {
+      "locationServiceDefault": {
+        "title": "هناك خطأ ما",
+        "description": "لا يمكنك استخدام التطبيق دون السماح لخدمة المواقع. \n الرجاء إعادة تشغيل التطبيق أو الانتقال إلى الإعدادات والسماح باستخدام الموقع."
+      },
+      "locationServiceRestricted": {
+        "title": "هناك خطأ ما",
+        "description": "لا يمكنك استخدام التطبيق دون السماح لخدمة المواقع. \n الموقع مقيد على جهازك ، يرجى إعلامك ، أحد الوالدين أو المسؤول ، للسماح به حتى تتمكن من استخدام التطبيق."
+      },
+      "locationServiceDenied": {
+        "title": "هناك خطأ ما",
+        "description": "لا يمكنك استخدام التطبيق بدون السماح بخدمة المواقع. \n يرجى إعادة تشغيل التطبيق أو الانتقال إلى الإعدادات والسماح باستخدام الموقع."
+      },
+      "locationServicePermenantlyDenied": {
+        "title": "هناك خطأ ما",
+        "description": "لا يمكنك استخدام التطبيق بدون السماح بخدمة المواقع ، \n الرجاء الانتقال إلى الإعدادات والسماح باستخدام الموقع."
+      }
+    }
+  },
+  "LoginView": {
+    "title": "تسجيل الدخول",
+    "emailLabelText": "البريد الإلكتروني",
+    "emailHintText": "e.g example@example.com",
+    "passwordLabelText": "كلمه السر",
+    "passwordHintText": "أدخل كلمة المرور الخاصة بك :-)",
+    "loginButtonText": "تسجيل الدخول",
+    "textLinkNoAccount": "ليس لديك حساب؟ إنشاء حساب الآن",
+    "dialog": {
+      "serverError": {
+        "title": "فشل تسجيل الدخول",
+        "description": "It's our fault, Please try again later."
+      },
+      "fieldsEmptyError": {
+        "title": "فشل تسجيل الدخول",
+        "description": "بعض أو كل الحقول فارغة! \n جميع الحقول مطلوبة."
+      },
+      "emailErrorBad": {
+        "title": "فشل تسجيل الدخول",
+        "description": "البريد الإلكتروني الذي أدخلته غير صحيح أو لا يمكن استخدامه! \n يرجى المحاولة مرة أخرى."
+      },
+      "passwordError": {
+        "title": "فشل تسجيل الدخول",
+        "description": "كلمة المرور التي أدخلتها غير صالحة! \n ويجب أن تتكون كلمة المرور من 6 أحرف على الأقل."
+      },
+      "noUserError": {
+        "title": "فشل تسجيل الدخول",
+        "description": "هذا البريد الإلكتروني غير مرتبط بأي حساب. يرجى إنشاء حساب جديد."
+      },
+      "defaultError": {
+        "title": "فشل تسجيل الدخول",
+        "description": "هذا خطأنا ، يرجى المحاولة مرة أخرى لاحقًا. \n إذا استمرت المشكلة ، اتصل بنا على yazeedfady@gmail.com"
+      }
+    }
+  },
+  "SignupView": {
+    "title": "سجل",
+    "firstNameLabelText": "الاسم الاول",
+    "firstNameHintText": "أدخل اسمك الأول",
+    "lastNameLabelText": "الإسم الأخير",
+    "lastNameHintText": "أدخل اسمك الأخير",
+    "idNumberOrIqamaLabelText": "رقم الهوية أو الإقامة",
+    "idNumberOrIqamaHintText": "أدخل رقم الهوية الخاص بك أو الإقامة",
+    "usernameLabelText": "اسم المستخدم",
+    "usernameHintText": "أدخل اسم المستخدم الخاص بك",
+    "emailLabelText": "البريد الإلكتروني",
+    "emailHintText": "example@example.com مثلا",
+    "passwordLabelText": "كلمه السر",
+    "passwordHintText": "أدخل كلمة المرور الخاصة بك :-)",
+    "signupButtonText": "سجل",
+    "textLinkHaveAnAccount": "هل لديك حساب؟ تسجيل الدخول الآن",
+    "dialog": {
+      "serverError": {
+        "title": "هناك خطأ ما",
+        "description": "هذا خطأنا ، يرجى المحاولة مرة أخرى لاحقًا."
+      },
+      "fieldsEmptyError": {
+        "title": "هناك خطأ ما",
+        "description": "بعض أو كل الحقول فارغة! \n جميع الحقول مطلوبة."
+      },
+      "emailErrorBad": {
+        "title": "هناك خطأ ما",
+        "description": "البريد الإلكتروني الذي أدخلته غير صحيح أو لا يمكن استخدامه! \n يرجى المحاولة مرة أخرى."
+      },
+      "passwordError": {
+        "title": "هناك خطأ ما",
+        "description": "كلمة المرور التي أدخلتها غير صالحة! \n ويجب أن تتكون كلمة المرور من 6 أحرف على الأقل."
+      },
+      "emailErrorUsed": {
+        "title": "هناك خطأ ما",
+        "description": "البريد الإلكتروني الذي أدخلته قيد الاستخدام بالفعل! \n يرجى محاولة استخدام واحد آخر."
+      },
+      "defaultError": {
+        "title": "هناك خطأ ما",
+        "description": "هذا خطأنا ، يرجى المحاولة مرة أخرى لاحقًا. \n إذا استمرت المشكلة ، اتصل بنا على yazeedfady@gmail.com"
+      }
+    }
+  },
+  "HomeView": {
+    "appBar": {
+      "title": "كلنا مسؤول"
+    },
+    "drawer": {
+      "profileCardTitle": "الملف الشخصي",
+      "historyCardTitle": "التاريخ",
+      "signOutButtonText": "خروج"
+    },
+    "dialog": {
+      "signOutDialog": {
+        "title": "هل أنت واثق؟",
+        "description": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+        "confirmationTitle": "نعم ، أنا متأكد من ذلك",
+        "cancelTitle": "لا"
+      }
+    }
+  },
+  "MapView": {
+    "layers": {
+      "mapTypeText": "نوع الخريطة",
+      "defaultText": "إفتراضي",
+      "satelliteText": "الأقمار الصناعية",
+      "terrainText": "تضاريس",
+      "settingsText": "الإعدادات",
+      "trafficText": "حركة المرور"
+    }
+  },
+  "NotificationsView": {
+    "appBar": {
+      "title": "إشعارات"
+    },
+    "body": {
+      "customCardCaseDetectedText": "تم اكتشاف حالة جديدة"
+    }
+  },
+  "HistoryView": {
+    "appBar": {
+      "title": "التاريخ"
+    },
+    "body": {
+      "card1": {
+        "dateTimeText": "5:25 pm | 11/03/2020",
+        "title": "ماكدونالدز - خزامى"
+      },
+      "card2": {
+        "dateTimeText": "3:29 pm | 11/03/2020",
+        "title": "منزل الجدة"
+      },
+      "card3": {
+        "dateTimeText": "12:29 pm | 10/03/2020",
+        "title": "النخيل مول"
+      }
+    }
+  },
+  "ProfileView": {
+    "body": {
+      "chatsText": "الدردشات",
+      "docksText": "الملفات",
+      "locationText": "موقعك",
+      "friendsText": "أصدقاء",
+      "settingsText": "الإعدادات"
+    }
+  },
+  "widgets": {
+    "busyOverlay": {
+      "titleText": "ارجوك انتظر..."
+    },
+    "customCard": {
+      "subtitleText": "المزيد"
+    }
+  }
+}

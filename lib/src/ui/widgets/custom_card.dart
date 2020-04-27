@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 import 'package:homathon_project/src/ui/shared/app_colors.dart';
 import 'package:homathon_project/src/ui/shared/ui_helpers.dart';
 
@@ -84,7 +85,10 @@ class CustomCard extends StatelessWidget {
                 ),
           ),
           subtitle: Text(
-            subtitleText ?? 'Learn More',
+            subtitleText ??
+                translate(
+                  'widgets.customCard.subtitleText',
+                ),
             style: subtitleTextStyle ??
                 TextStyle(
                   fontSize: blockSizeHorizontal(context) * 3.5,
