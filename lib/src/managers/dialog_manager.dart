@@ -35,11 +35,10 @@ class _DialogManagerState extends State<DialogManager> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AssetGiffyDialog(
-          image: Image.asset(
-            request.image ?? 'assets/images/gif/oh_really.gif',
-            fit: BoxFit.fill,
-          ),
+        return FlareGiffyDialog(
+          flarePath: 'assets/Teddy1.flr',
+          flareAnimation: request.flareAnimation ?? 'fail',
+          entryAnimation: EntryAnimation.RIGHT,
           title: Text(
             request.title,
             textAlign: TextAlign.center,

@@ -20,7 +20,7 @@ class DialogService {
     String title,
     String description,
     String buttonTitle = 'Ok',
-    String image,
+    String flareAnimation,
   }) {
     _dialogCompleter = Completer<DialogResponse>();
     _showDialogListener(
@@ -28,7 +28,7 @@ class DialogService {
         title: title,
         description: description,
         buttonTitle: buttonTitle,
-        image: image,
+        flareAnimation: flareAnimation,
       ),
     );
     return _dialogCompleter.future;
@@ -40,7 +40,7 @@ class DialogService {
     String description,
     String confirmationTitle = 'Ok',
     String cancelTitle = 'Cancel',
-    String image,
+    String flareAnimation,
   }) {
     _dialogCompleter = Completer<DialogResponse>();
     _showDialogListener(
@@ -49,7 +49,7 @@ class DialogService {
         description: description,
         buttonTitle: confirmationTitle,
         cancelTitle: cancelTitle,
-        image: image,
+        flareAnimation: flareAnimation,
       ),
     );
     return _dialogCompleter.future;

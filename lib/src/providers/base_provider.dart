@@ -51,7 +51,7 @@ class BaseProvider extends ChangeNotifier {
         description:
             'We have no clue what happened! You can copy the short url from the home screen.',
         buttonTitle: 'Ok, Thanks!',
-        image: 'assets/images/gif/something_went_wrong.gif',
+        flareAnimation: 'fail',
       );
     }
   }

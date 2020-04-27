@@ -5,14 +5,17 @@ class DialogRequest {
   final String description;
   final String buttonTitle;
   final String cancelTitle;
-  final String image;
+
+  /// `flareAnimation` can either be
+  /// `success` or `fail` or `idle`
+  final String flareAnimation;
 
   DialogRequest({
     @required this.title,
     @required this.description,
     @required this.buttonTitle,
     this.cancelTitle,
-    this.image,
+    this.flareAnimation,
   });
 }
 

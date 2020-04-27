@@ -23,7 +23,7 @@ class HomeProvider extends BaseProvider {
       title: homeViewTranslate(
         'dialog.signOutDialog.title',
       ),
-      image: 'assets/images/gif/are_you_sure.gif',
+      flareAnimation: 'idle',
       description: homeViewTranslate(
         'dialog.signOutDialog.description',
       ),

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter_translate/flutter_translate.dart';
 import 'package:homathon_project/src/constants/route_names.dart';
 import 'package:homathon_project/src/providers/base_provider.dart';
 import 'package:permission_handler/permission_handler.dart';

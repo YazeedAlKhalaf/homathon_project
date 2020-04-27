@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_translate/flutter_translate.dart';
 import 'package:provider/provider.dart';
 
 class BaseWidget<T extends ChangeNotifier> extends StatefulWidget {

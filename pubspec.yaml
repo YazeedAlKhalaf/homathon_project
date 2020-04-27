@@ -56,6 +56,8 @@ dependencies:
     sdk: flutter
   # shared preferences
   shared_preferences: ^0.5.7
+  # flare flutter
+  flare_flutter: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -73,9 +75,9 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/
     - assets/icon/
     - assets/images/
-    - assets/images/gif/
     - assets/images/defaults/
     - assets/map_styles/
     - assets/i18n/
